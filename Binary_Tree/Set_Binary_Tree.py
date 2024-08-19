@@ -11,7 +11,8 @@ class Set_Binary_Tree(Binary_Tree):
         # need __iter__ in Binary_Tree
         yield from self
 
-    # 构建树，通过插入列表X中的每个元素
+    # 构建树，通过插入列表X中的每个元素 
+    # X will be constructed to a set binary tree, but if X is sorted, it will be a binary search tree with one branch
     def build(self, X):
         for x in X:
             self.insert(x)
