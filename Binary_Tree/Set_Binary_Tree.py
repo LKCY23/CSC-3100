@@ -1,7 +1,7 @@
 from Binary_Tree.Binary_Tree import Binary_Tree
 from BST_Node import BST_Node
 
-class Set_Binary_Tree(Binary_Tree):
+class Set_Binary_Tree(Binary_Tree): # (AVL_Binary_Node)
     # 初始化集合二叉树
     def __init__(self):
         super().__init__(BST_Node)
