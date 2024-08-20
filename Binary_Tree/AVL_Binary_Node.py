@@ -84,7 +84,7 @@ class Binary_Node:
             self.parent.maintain()
         return self
 
-    def subtree_rotate_right(self): # O(1)
+    def subtree_rotate_right(self): # O(1) # why use B, D?
         assert self.left
         B, E = self.left, self.right
         A, C = B.left, B.right
@@ -97,7 +97,7 @@ class Binary_Node:
         B.subtree_update()
         self.subtree_update()
 
-    def subtree_rotate_left(self):
+    def subtree_rotate_left(self): # O(1)
         assert self.right
         A, D = self.left, self.right
         C, E = D.left, D.right
@@ -110,7 +110,7 @@ class Binary_Node:
         self.subtree_update()
         D.subtree_update()
 
-    def rebalance(self):
+    def rebalance(self): # O(1) # why can B.subtree_update() be omitted?    
         if self.skew() == 2:
             if self.right.skew() < 0:
                 self.right.subtree_rotate_right()
@@ -120,7 +120,7 @@ class Binary_Node:
                 self.left.subtree_rotate_left()
             self.subtree_rotate_right()
 
-    def maintain(self):
+    def maintain(self): # O(logn)
         self.rebalance()
         self.subtree_update()
         if self.parent:
