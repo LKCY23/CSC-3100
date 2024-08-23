@@ -1,3 +1,9 @@
+def height(node):
+    if node:
+        return node.height_value
+    else:
+        return -1
+    
 class Binary_Node:
     def __init__(self, x):
         self.item = x
@@ -7,18 +13,28 @@ class Binary_Node:
         self.height_value = 0
         self.subtree_update()
 
-    def height(self): # O(1)
-        if self:
-            return self.height_value
-        else:
-            return -1
+    # @staticmethod
+    # def height(A): # O(1)
+        # if A:
+        #     return A.height_value
+        # else:
+        #     return -1
 
-    def subtree_update(self): # O(1)
-        self.height_value = 1 + max(self.left.height(), self.right.height())
+    # def subtree_update(self): # O(1)
+    #     self.height_value = 1 + max(Binary_Node.height(self.left), Binary_Node.height(self.right))
+
+    # def skew(self): # O(1)
+    #     if self:
+    #         return Binary_Node.height(self.left) - Binary_Node.height(self.right)
+    #     else:
+    #         return 0
+
+    def subtree_update(self): # O(n)
+        self.height_value = 1 + max(height(self.left), height(self.right))
 
     def skew(self): # O(1)
-        return self.right.height() - self.left.height()
-
+        return height(self.left) - height(self.right)
+           
     def subtree_iter(self): # O(n)
         if self.left:
             yield from self.left.subtree_iter()

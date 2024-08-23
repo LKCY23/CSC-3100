@@ -1,4 +1,4 @@
-from Binary_Node import Binary_Node
+from AVL_Binary_Node import Binary_Node 
 
 class Size_Node(Binary_Node):
     def __init__(self, x):

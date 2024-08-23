@@ -1,8 +1,9 @@
 from Binary_Tree import Binary_Tree
+from Size_Node import Size_Node
 
 class Seq_Binary_Tree(Binary_Tree):
     def __init__(self):
-        super().__init__(10)  # Replace 10 with the appropriate value for Size_Node)
+        super().__init__(Size_Node)  
 
     def build(self, X):
         A = [x for x in X]
@@ -61,3 +62,14 @@ class Seq_Binary_Tree(Binary_Tree):
 
     def delete_last(self):
         return self.delete_at(len(self) - 1)
+
+if __name__ == "__main__":
+    
+    T = Seq_Binary_Tree()
+    T.build([10,6,8,5,1,3])
+    T.get_at(4)
+    T.set_at(4, -4)
+    T.insert_at(4, 18)
+    T.insert_at(4, 12)
+    T.delete_at(2)
+
