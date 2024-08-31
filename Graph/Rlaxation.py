@@ -44,3 +44,11 @@ def DAG_Relaxation(Adj, w, s):       # Adj: adjacency list, w: weights, s: start
         for v in Adj[u]:             # loop through out-going edges of u
             try_to_relax(Adj, w, d, parent, u, v)  # try to relax edge from u to v
     return d, parent                 # return weights, paths via parents (the ssps to all vertices)
+"""
+why dfs or topological order works?
+# Properties of topological sorting:
+#
+# Topological sorting is a way to sort the vertices in a directed acyclic graph (DAG) such that for every directed edge (u, v),
+# vertex u appears before vertex v. This means that when processing vertex v, all possible predecessor vertices u that may affect v
+# have already been processed according to the shortest path.
+"""
